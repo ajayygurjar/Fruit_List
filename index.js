@@ -73,20 +73,73 @@
 //STEP:-5 Creaing Element
 // Write your code below:
 
-const heading=document.createElement('h3')
-const headingText=document.createTextNode('Buy hig quality orgainic fruits online');
-heading.appendChild(headingText)
-heading.style.fontStyle='italic'
+// const heading=document.createElement('h3')
+// const headingText=document.createTextNode('Buy hig quality orgainic fruits online');
+// heading.appendChild(headingText)
+// heading.style.fontStyle='italic'
 
-const div=document.getElementsByTagName('div')
-const firstDiv=div[0]
-firstDiv.appendChild(heading)
+// const div=document.getElementsByTagName('div')
+// const firstDiv=div[0]
+// firstDiv.appendChild(heading)
 
-const secondDiv=div[1]
-const para=document.createElement('p')
-const paraText=document.createTextNode("Total fruits: 4")
-para.appendChild(paraText)
-para.id='fruits-total'
+// const secondDiv=div[1]
+// const para=document.createElement('p')
+// const paraText=document.createTextNode("Total fruits: 4")
+// para.appendChild(paraText)
+// para.id='fruits-total'
 
-const list=document.querySelector('.fruits')
-secondDiv.insertBefore(para,list)
+// const list=document.querySelector('.fruits')
+// secondDiv.insertBefore(para,list)
+
+
+//STEP:-6 FIlTER FUNCTIONALITY
+
+// Selecting elements
+const form = document.querySelector('form');
+const fruits = document.querySelector('.fruits');
+
+// Adding 'Edit' buttons to existing list items
+document.querySelectorAll('li').forEach(item => {
+    const editBtn = document.createElement('button');
+    editBtn.className = 'edit-btn';
+    editBtn.textContent = 'Edit';
+    item.appendChild(editBtn);
+});
+
+// Form submission event listener
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Getting input value
+    const fruitToAdd = document.getElementById('fruit-to-add').value;
+
+    // Creating new list item
+    const newli = document.createElement('li');
+    newli.textContent = fruitToAdd;
+    newli.className = 'fruit';
+
+    // Creating 'Edit' and 'Delete' buttons
+    const editBtn = document.createElement('button');
+    editBtn.className = 'edit-btn';
+    editBtn.textContent = 'Edit';
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.textContent = 'x';
+
+    // Appending buttons to the new list item
+    newli.append(deleteBtn);
+    newli.append(editBtn);
+
+    // Appending the new list item to the container
+    fruits.appendChild(newli);
+});
+
+// Delete event listener
+fruits.addEventListener('click', function(event) {
+    if (event.target.classList.contains('delete-btn')) {
+        // Removing the clicked fruit item
+        const fruitToDelete = event.target.parentElement;
+        fruits.removeChild(fruitToDelete);
+    }
+});
