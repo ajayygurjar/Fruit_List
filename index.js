@@ -35,7 +35,7 @@
 //   listName[i].style.fontStyle='italic';
 // }
 
-STEP:-4 querySelector & querySelectorAll Methods
+//STEP:-4 querySelector & querySelectorAll Methods
 // Write the code as shown in th
 const mainHeading=document.querySelector("#main-heading")
 mainHeading.style.textAlign='right'
