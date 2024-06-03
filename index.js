@@ -29,8 +29,43 @@
 //STEP:- 3 getElementsByTagName
 
 // Write your code below:
-const listName=document.getElementsByTagName("li");
-listName[4].style.color='blue'
+// const listName=document.getElementsByTagName("li");
+// listName[4].style.color='blue'
+// for(let i=0;i<listName.length;i++){
+//   listName[i].style.fontStyle='italic';
+// }
+
+STEP:-4 querySelector & querySelectorAll Methods
+// Write the code as shown in th
+const mainHeading=document.querySelector("#main-heading")
+mainHeading.style.textAlign='right'
+
+const fruit=document.querySelector('.fruits')
+fruit.style.backgroundColor='gray'
+fruit.style.padding='30px'
+fruit.style.width='50%'
+fruit.style.margin='30px'
+fruit.style.borderRadius='5px'
+fruit.style.listStyleType='none'
+
+const basketHeading=document.querySelector("h2");
+basketHeading.style.color="brown";
+basketHeading.style.marginLeft='30px'
+
+const listName=document.querySelectorAll('.fruit')
 for(let i=0;i<listName.length;i++){
-  listName[i].style.fontStyle='italic';
+  listName[i].style.color='white'
+  listName[i].style.backgroundColor='white'
+  listName[i].style.padding='10px'
+  listName[i].style.margin='10px'
+  listName[i].style.borderRadius='5px'
+}
+
+const OddlistName=document.querySelectorAll('.fruit:nth-child(odd)');
+for(let i=0;i<OddlistName.length;i++){
+  OddlistName[i].style.backgroundColor='lightgray'
+}
+const EvenlistName=document.querySelectorAll('.fruit:nth-child(even)');
+for(let i=0;i<EvenlistName.length;i++){
+  EvenlistName[i].style.backgroundColor='brown'
 }
